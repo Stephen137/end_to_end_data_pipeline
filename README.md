@@ -1,2 +1,1 @@
-# de_zoomcamp_project
-de_zoomcamp_project
+Data Engineering project
