@@ -2,3 +2,8 @@
 target/
 dbt_packages/
 logs/
+.csv
+.parquet
+.json
+.PNG
+.tfstate
