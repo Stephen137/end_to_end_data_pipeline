@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'spotify_dbt'
+name: 'spotify_dbt' # This will be the name of the dataset dbt will create in BigQuery
 version: '1.0.0'
 config-version: 2
 

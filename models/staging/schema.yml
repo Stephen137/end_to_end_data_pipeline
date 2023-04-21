@@ -1,10 +1,10 @@
 version: 2
 
 sources:
-    - name: spotify # Chose a name
+    - name: spotify # Choose a name. This will be the 'source' referred to 
       database: de-zoomcamp-project137 # BigQuery project reference
       tables:
-        - name: spotify_one_point_two_million
+        - name: spotify_one_point_two_million # Choose a name for the table to be created in BigQuery
        
 models:
     - name: spotify_one_point_two_million
@@ -88,4 +88,4 @@ models:
           - name: release_date
             description: Release date of the track in the format 2023-04-17
 
-    
+ 
