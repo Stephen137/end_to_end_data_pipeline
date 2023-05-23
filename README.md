@@ -1,13 +1,3 @@
----
-title: "Data Engineering Zoomcamp - Final Project"
-author: "Stephen Barrie"
-date: "2023-04-21"
-execute:
-  output: true
-code-fold: false
-categories: [Terraform, Prefect, GCS, BigQuery, dbt, Looker, DataTalksClub ]
-image: 'Looker.PNG'
----
 ## DE Zoomcamp - Final Project
 
 ### Spotify 1.2 million - Project Overview
