@@ -16,7 +16,7 @@ So sit back and enjoy the ride ;)
 
 Outlined below is an overview of the architecture and technologies that I will be using to unveil some insights from the raw data.
 
-![Architecture_Technologies.png](attachment:87b214a2-f95c-48d8-a6ae-46e46714961f.png)
+![](images/Architecture_Technologies.png)
 
 ### 1. Set up & configuration
 
@@ -137,14 +137,14 @@ For further assistance refer to this [detailed guide on Local Setup for Terrafor
 
 I was unable to download the file using the link address to the file on Kaggle :
 
-![kaggle_download.PNG](attachment:392ee20a-44b7-448b-8d85-b2ad797dd96b.PNG)
+![](images/kaggle_download.PNG)
 
 As a workaround I resorted to clicking on the `Download` icon to save the file locally. We can access the file size (memory) and number of rows from the command line using the following commands :
 
     du -h <file_name>
     wc -l <file_name>  
 
-![spotify_csv.PNG](attachment:6af60789-c7d5-4f91-aed5-bc09adcbb956.PNG)
+![](images/spotify_csv.PNG)
 
 Let's get to know our data :
 
@@ -2844,9 +2844,9 @@ For more detailed coverage see [attached](https://github.com/discdiver/prefect-z
 
 Note, that I had also configured my GCP Credentials and Google Cloud Storage [Prefect connector blocks](https://www.prefect.io/guide/blog/blocks-connectors-for-code/0) during week 2 of the course :
 
-![gcp_cred_block.PNG](attachment:5696ecf7-432e-4113-97aa-666f585738db.PNG)
+![](images/gcp_cred_block.PNG)
 
-![gcs_bucket_block.PNG](attachment:7b2ef705-54ec-4b2a-8545-45c9ab2d1d03.PNG)
+![](images/gcs_bucket_block.PNG)
 
 The basic config template is included below for reference :
 
@@ -2960,13 +2960,13 @@ if __name__ == "__main__":
     etl_web_to_gcs()
 ```
 
-![prefect_etl_web_to_gcs_1.PNG](attachment:7ad7c67f-ad97-46bb-b9ee-35234470a604.PNG)
+![](images/prefect_etl_web_to_gcs_1.PNG)
 
-![prefect_etl_web_to_gcs_2.PNG](attachment:12163578-de87-4fde-a7d3-97912bb79930.PNG)
+![](images/prefect_etl_web_to_gcs_2.PNG)
 
 That has completed successfully. The parquet file has been uploaded to our data lake :
 
-![bucket.PNG](attachment:874c4434-bcd0-41b8-a2bd-e91a92bf4a05.PNG)
+![](images/bucket.PNG)
 
 I created the following Python script to take the parquet file from Google Cloud Storage and write to BigQuery as a table, and ran the file from the command line using :
 
@@ -3029,13 +3029,13 @@ if __name__ == "__main__":
     etl_gcs_to_bq()
 ```
 
-![prefect_etl_gcs_to_bq.PNG](attachment:76f5cd10-cb55-4f03-9449-1642c8fe0c60.PNG)
+![](images/prefect_etl_gcs_to_bq.PNG)
 
-![prefect_etl_gcs_to_bq_1.PNG](attachment:ebcd0e19-6416-4012-b985-cbd80987da89.PNG)
+![](images/prefect_etl_gcs_to_bq_1.PNG)
 
 That has also completed successfully. A table has been created in BigQuery from the data held in Google Cloud Storage :
 
-![big_query.PNG](attachment:74f1ea15-aeb9-42a3-a4c5-e2180f6006c2.PNG)
+![](images/big_query.PNG)
 
 ### 4. Data Transformation
 
@@ -3045,19 +3045,19 @@ We need to create a dedicated service account within Big Query to enable communi
 
 1. Open the [BigQuery credential wizard](https://console.cloud.google.com/apis/credentials/wizard) to create a service account in your project :
 
-![big_query_dbt.PNG](attachment:6aa42ad2-af4f-42f7-8fcc-f67f1c7a821f.PNG)
+![](images/big_query_dbt.PNG)
 
-![dbt_service_account.PNG](attachment:6ccd2f96-c51c-4323-8402-7ccbdf4ba261.PNG)
+![](images/dbt_service_account.PNG)
 	
 2. You can either grant the specific roles the account will need or simply use `BigQuery Admin`, as you'll be the sole user of both accounts and data.
 
 *Note: if you decide to use specific roles instead of BQ Admin, some users reported that they needed to add also viewer role to avoid encountering denied access errors.*
     
-![dbt_service_account_grantaccess.PNG](attachment:4a26d5f5-691b-4a1e-a330-c56690390076.PNG)
+![](images/dbt_service_account_grantaccess.PNG)
 
 3. Now that the service account has been created we need to add and download a JSON key, go to the keys section, select "create new key". Select key type JSON and once you click on `CREATE` it will get inmediately downloaded for you to use.
 
-![dbt_service_account_key.PNG](attachment:bfa9f000-9502-47ef-ac78-1a97bb35e180.PNG)
+![](images/dbt_service_account_key.PNG)
 
 #### Create a dbt cloud project
 
@@ -3067,25 +3067,25 @@ We need to create a dedicated service account within Big Query to enable communi
 4. Choose BigQuery as your data warehouse:
 5. Upload the key you downloaded from BigQuery. This will populate most fields related to the production credentials.
 
-![dbt_project_setup.PNG](attachment:11d0078d-9068-4fe2-8b82-71d92461960b.PNG)
+![](images/dbt_project_setup.PNG)
 
 Scroll down to the end of the page, set up your development credentials, and run the connection test and hit `Next`:
 
-![dbt_development_credentials.PNG](attachment:31205978-0fbd-426a-acd3-dc4d471e5c9d.PNG)
+![](images/dbt_development_credentials.PNG)
 
 #### Add GitHub repository
 
 1. Select git clone and paste the SSH key from your repo. Then hit `Import` 
 
-![project_github_repo.PNG](attachment:e223d392-aa63-43ae-a6ff-0f7504434eb9.PNG)
+![](images/project_github_repo.PNG)
 
 2. You will get a deploy key :
 
-![image.png](attachment:feaebd52-825e-4b1c-aa5f-4f26ac12f161.png)
+![](images/image.png)
 
 3. Head to your GH repo and go to the settings tab. Under security you'll find the menu *deploy keys*. Click on `Add deploy key` and paste the deploy key provided by dbt cloud. Make sure to tick on "write access".
 
-![add_dbt_deploy_key_to_github.PNG](attachment:7ec9600e-f758-4e00-8b4f-3f980f6f5988.PNG)
+![](images/add_dbt_deploy_key_to_github.PNG)
 
 For a detailed set up guide [see here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md).
 
@@ -3095,7 +3095,7 @@ This builds out your folder structure with example models.
 
 Make your initial commit by clicking `Commit and sync`. Use the commit message "initial commit" and click `Commit`. Note that the files are read-only and you have to `Create branch` before you can edit or add new files :
 
-![dbt_initial_commit.PNG](attachment:21f02bab-a579-44a3-9fb8-0800d7dbf850.PNG)
+![](images/dbt_initial_commit.PNG)
 
 Once you have created a branch you can edit and add new files. Essentially we only need three files to build our model :
 
@@ -3369,7 +3369,7 @@ Macros in [Jinja](https://docs.getdbt.com/docs/build/jinja-macros) are pieces of
 
 Now that we have our files set up we are ready to run our model. We can see from the lineage that all the connections are complete :
 
-![dbt_lineage.PNG](attachment:cbf84737-541b-46f6-b121-46d8b06a5915.PNG)
+![](images/dbt_lineage.PNG)
 
 We can run the model from the dbt console using :
     
@@ -3377,12 +3377,12 @@ We can run the model from the dbt console using :
     
 And we can see from the system log that the run was successful :
 
-![dbt_system_log.PNG](attachment:61a5f60d-e700-4833-98b4-7baadd99894a.PNG)
+![](images/dbt_system_log.PNG)
 
 And we have our table created in Big Query with `1,204,025` rows as expected.
 
 
-![biq_query_table.PNG](attachment:57eda9cc-3966-4b3f-a629-37338c2b2983.PNG)
+![](images/biq_query_table.PNG)
 
 ### 5. Visualization
 
@@ -3390,21 +3390,21 @@ We've come a long way since downloading our raw csv file from Kaggle. Our journe
 
 The first thing we need to do is create a data source. There are 23 different `connectors` at the time of writing. We will be using `BigQuery` :
 
-![looker_connectors.PNG](attachment:53d97ff7-13e5-4c7b-836c-a2f96d838752.PNG)
+![](images/looker_connectors.PNG)
 
 Our recent dataset and table are sitting there ready for connection :
 
-![looker_dataset.PNG](attachment:bc55aa38-e69d-4e76-936d-aea8ffd51419.PNG)
+![](images/looker_dataset.PNG)
 
 Hit `CONNECT` and we see our fields or columns are there with default settings attached which can be modified if required. Finally hit `CREATE REPORT` and you are taken to a blank canvass dashboard where the magic begins :) 
 
-![blank_canvass.PNG](attachment:54baf35c-551c-4957-8532-add6836d4491.PNG)
+![](images/blank_canvass.PNG)
 
 
 
 For a complete guide you can check out the [Looker Documentation](https://cloud.google.com/looker#section-5), but the console is very intuitive, and a few strokes of the brush (or clicks of the keyboard) and I was able to produce [this dashboard](https://lookerstudio.google.com/s/rdqSyyDxtu4) (screenshot included below if you can't access the link).
     
-![Looker.PNG](attachment:493f3890-b94a-45f8-a985-9f1e2ae3cca8.PNG)
+![](images/Looker.PNG)
 
 
 ```python
