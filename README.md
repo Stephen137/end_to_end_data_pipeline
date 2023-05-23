@@ -3081,7 +3081,7 @@ Scroll down to the end of the page, set up your development credentials, and run
 
 2. You will get a deploy key :
 
-![](images/image.png)
+![](images/dbt_deploy_key.PNG)
 
 3. Head to your GH repo and go to the settings tab. Under security you'll find the menu *deploy keys*. Click on `Add deploy key` and paste the deploy key provided by dbt cloud. Make sure to tick on "write access".
 
