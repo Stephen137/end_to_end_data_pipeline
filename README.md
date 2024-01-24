@@ -1,4 +1,4 @@
-## DE Zoomcamp - Final Project
+## End-to-end data pipeline
 
 ### Spotify 1.2 million - Project Overview
 
